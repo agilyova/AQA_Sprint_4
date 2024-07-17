@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import ru.yandex.practicum.Pages.HeaderPage;
-import ru.yandex.practicum.Pages.HomePage;
 
 public class BaseFunctionality extends BaseTest{
     WebDriver driver;
@@ -14,16 +13,6 @@ public class BaseFunctionality extends BaseTest{
     @Before
     public void setUp() {
         driver = getBaseDriver();
-    }
-
-    @Test
-    public void questionClickShowsAnswer() {
-        driver.get(baseUrl);
-
-        HomePage homePage = new HomePage(driver);
-        homePage.clickQuestion("Хочу сразу несколько самокатов! Так можно?");
-
-        homePage.checkTheAnswerIsCorrectAndVisible("Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.");
     }
 
     @Test

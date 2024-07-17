@@ -10,11 +10,16 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 public class BaseTest {
     String baseUrl = "https://qa-scooter.praktikum-services.ru/";
 
-    WebDriver getBaseDriver() {
-        return new ChromeDriver(new ChromeOptions().addArguments("--window-size=1920,1080"));
+    private String baseDriver = "Chrome";
 
-/*      WebDriver driver = new FirefoxDriver(new FirefoxOptions().addArguments("--start-maximized"));
-        driver.manage().window().setSize(new Dimension(1920, 1080));
-        return driver;*/
+    WebDriver getBaseDriver() {
+        if (baseDriver.equals("Firefox")) {
+            WebDriver driver = new FirefoxDriver(new FirefoxOptions().addArguments("--start-maximized"));
+            driver.manage().window().setSize(new Dimension(1920, 1080));
+            return driver;
+            }
+        else {
+            return new ChromeDriver(new ChromeOptions().addArguments("--window-size=1920,1080"));
+        }
     }
 }
